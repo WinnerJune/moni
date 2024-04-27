@@ -1,0 +1,72 @@
+﻿@model IEnumerable<O.EN.Personao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           @*  <th>
+                Id
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.First().NombreO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ApellidoO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().FechaNacimientoO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().sueldoO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().EstatusO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ComentarioO)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreO)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.ApellidoO)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.FechaNacimientoO)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.sueldoO)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.EstatusO)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.ComentarioO)
+                </th>
+                <td>
+                    <a href="@Url.Action("Edit", new {Id = item.Id})" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("Details", new { Id = item.Id })" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", new { Id = item.Id })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
